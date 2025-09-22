@@ -53,3 +53,4 @@ htmlcov/
 .settings/
 
 *logs
+data/

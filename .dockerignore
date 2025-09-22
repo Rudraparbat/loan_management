@@ -1,0 +1,65 @@
+# --- Git ---
+# Ignore the entire Git directory and the .gitignore file itself
+.git/
+.gitignore
+
+# --- Python ---
+# Ignore Python's bytecode files and cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Virtual Environments ---
+# Ignore common virtual environment folder names
+venv/
+env/
+.venv/
+*/venv/
+*/env/
+*/.venv/
+
+# --- Local Secrets and Configs ---
+# Exclude environment files, local settings, and IDE configs
+.env
+.env.*
+local_settings.py
+.vscode/
+.idea/
+
+# --- Database Files ---
+# Exclude local database files like SQLite
+db.sqlite3
+*.sql
+
+# --- Docker ---
+# Exclude Docker-related files from the build context itself
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+
+# --- Static and Media Files (for development) ---
+# If you collect static files locally, you might want to exclude the source
+# to ensure only the container's collectstatic command is used.
+# This is optional and depends on your workflow.
+# /static/
+# /media/
+
+# --- Test and CI/CD ---
+# Ignore test reports, coverage data, and CI/CD configuration
+.pytest_cache/
+.coverage
+coverage.xml
+pytest-report.html
+.gitlab-ci.yml
+.travis.yml
+
+# --- OS-specific files ---
+# Ignore metadata files created by macOS and Windows
+.DS_Store
+Thumbs.db
+
+# --- Documentation ---
+# Ignore documentation files that aren't needed in the final image
+README.md
+docs/

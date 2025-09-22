@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import sys
+
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -73,11 +76,22 @@ WSGI_APPLICATION = 'credit_approver.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+# for testing we are using in memory sqlite database
+if 'test' in sys.argv:
+    defaults = {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': ':memory:',  # In-memory database for speed
+        'TEST': {},
     }
+# else docker postgres database
+else :
+    defaults =  dj_database_url.config(
+        default="postgres://postgres:postgres@db:5432/postgres",
+    )
+
+
+DATABASES = {
+    'default': defaults
 }
 
 
