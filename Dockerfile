@@ -36,6 +36,8 @@ RUN pip install --no-cache /wheels/*
 # Set the working directory
 WORKDIR /app
 
+COPY ./wait-for-it.sh .
+RUN chmod +x wait-for-it.sh
 # Copy the application code from your local machine to the container
 COPY . .
 
