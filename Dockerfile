@@ -28,16 +28,18 @@ RUN pip wheel --no-cache-dir --wheel-dir /app/wheels -r requirements.txt
 # ---- Final Stage ----
 FROM base AS final
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends postgresql-client && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy the installed Python packages from the builder stage
 COPY --from=builder /app/wheels /wheels
 RUN pip install --no-cache /wheels/*
 
+
 # Set the working directory
 WORKDIR /app
 
-COPY ./wait-for-it.sh .
-RUN chmod +x wait-for-it.sh
 # Copy the application code from your local machine to the container
 COPY . .
 
