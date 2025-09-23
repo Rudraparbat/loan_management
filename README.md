@@ -61,14 +61,20 @@ You must have the following software installed on your system:
     docker-compose up --build 
     ```
 
-4.  **View the logs (optional):**
+4.  **Create Super User:**
+    After running the container , in cmd create super user data , and can access admin page at http://localhost:8000/admin
+    ```
+    docker-compose exec app python manage.py createsuperuser
+    ```
+
+5.  **View the logs (optional):**
     To see the logs from all running containers and confirm that everything has started correctly, you can run:
     ```
     docker-compose logs -f
     ```
     You should see the Django development server start on port 8000 and the Celery worker become ready.
 
-The API will now be accessible at `http://localhost:8000/`.
+The API will now be accessible at http://localhost:8000/.
 
 ## API Endpoints
 
