@@ -110,6 +110,10 @@ class LoanEligibilityChecker :
         if customer_data.current_loan_sum > customer_data.approved_limit:
             self.message = "Your Total Ongoing Loans Exceed Your Approved Limit"
             return 0
+        
+        if self.loan_amount > customer_data.approved_limit:
+            self.message = "Your Asked Loan Amount Exceed Your Approved Limit"
+            return 0 
 
         # --- NEW: Handle Case for Customers with No Loan History ---
         if customer_data.num_loans_taken == 0:
@@ -153,6 +157,9 @@ class LoanEligibilityChecker :
         # base case to check if the current emis are greater than 50% of monthly salary 
         if customer_data.total_current_emis > (0.5 * customer_data.monthly_income) :
             self.message = "Current EMIs exceed 50% of Monthly Income"
+            return data
+        
+        if credit_score == 0 :
             return data
         
         # Implies Interset Rate As per Customer Data

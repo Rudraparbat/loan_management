@@ -80,11 +80,11 @@ The API will now be accessible at http://localhost:8000/.
 
 | Endpoint                      | Method | Description                               |
 | :---------------------------- | :----- | :---------------------------------------- |
-| `/register/`                  | `POST` | Registers a new customer.                 |
-| `/check-eligibility/`         | `POST` | Checks loan eligibility for a customer.   |
-| `/create-loan/`               | `POST` | Creates a new loan application.           |
-| `/view-loan/<int:loan_id>/`     | `GET`  | Retrieves details for a specific loan.    |
-| `/view-loans/<int:customer_id>/`| `GET`  | Retrieves all loans for a specific customer.|
+| `api/register/`                  | `POST` | Registers a new customer.                 |
+| `api/check-eligibility/`         | `POST` | Checks loan eligibility for a customer.   |
+| `api/create-loan/`               | `POST` | Creates a new loan application.           |
+| `api/view-loan/<int:loan_id>/`     | `GET`  | Retrieves details for a specific loan.    |
+| `api/view-loans/<int:customer_id>/`| `GET`  | Retrieves all loans for a specific customer.|
 
 ## Automatic Data Seeding
 
