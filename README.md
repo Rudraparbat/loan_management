@@ -67,6 +67,12 @@ You must have the following software installed on your system:
     docker-compose exec app python manage.py createsuperuser
     ```
 
+4.  **Run Test Cases (Not Properly Done):**
+    After running the container , in cmd Run this command
+    ```
+    docker-compose exec app python manage.py test
+    ```
+
 5.  **View the logs (optional):**
     To see the logs from all running containers and confirm that everything has started correctly, you can run:
     ```
@@ -85,6 +91,33 @@ The API will now be accessible at http://localhost:8000/.
 | `api/create-loan/`               | `POST` | Creates a new loan application.           |
 | `api/view-loan/<int:loan_id>/`     | `GET`  | Retrieves details for a specific loan.    |
 | `api/view-loans/<int:customer_id>/`| `GET`  | Retrieves all loans for a specific customer.|
+
+## API Endpoints And Request bodys.
+
+| Endpoint                      | Method | Description                               |
+| :---------------------------- | :----- | :---------------------------------------- |
+| `api/register/`                  | `POST` | {
+    "first_name": "Rudra",
+    "last_name": "Singh",
+    "age": 23,
+    "monthly_income": 23000,
+    "phone_number": 8697989224
+}
+                 |
+| `api/check-eligibility/`         | `POST` | {
+    "customer_id": 230,
+    "loan_amount": 120030,
+    "interest_rate": 8.12,
+    "tenure": 12
+}  |
+| `api/create-loan/`               | `POST` | {
+    "customer_id": 230,
+    "loan_amount": 120030,
+    "interest_rate": 8.12,
+    "tenure": 12
+}           |
+| `api/view-loan/<int:loan_id>/`     | `GET`  | No Request Body Needed     |
+| `api/view-loans/<int:customer_id>/`| `GET`  | No Request Body Needed |
 
 ## Automatic Data Seeding
 
