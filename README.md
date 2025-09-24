@@ -92,32 +92,37 @@ The API will now be accessible at http://localhost:8000/.
 | `api/view-loan/<int:loan_id>/`     | `GET`  | Retrieves details for a specific loan.    |
 | `api/view-loans/<int:customer_id>/`| `GET`  | Retrieves all loans for a specific customer.|
 
-## API Endpoints And Request bodys.
+## API Endpoints and Request Bodies
 
-| Endpoint                      | Method | Description                               |
-| :---------------------------- | :----- | :---------------------------------------- |
-| `api/register/`                  | `POST` | {
+| Endpoint | Method | Request Body | Description |
+| :------- | :----- | :---------- | :---------- |
+| `api/register/` | `POST` | ```json
+{
     "first_name": "Rudra",
     "last_name": "Singh",
     "age": 23,
     "monthly_income": 23000,
     "phone_number": 8697989224
 }
-                 |
-| `api/check-eligibility/`         | `POST` | {
+``` | Register a new customer |
+| `api/check-eligibility/` | `POST` | ```json
+{
     "customer_id": 230,
     "loan_amount": 120030,
     "interest_rate": 8.12,
     "tenure": 12
-}  |
-| `api/create-loan/`               | `POST` | {
+}
+``` | Check loan eligibility |
+| `api/create-loan/` | `POST` | ```json
+{
     "customer_id": 230,
     "loan_amount": 120030,
     "interest_rate": 8.12,
     "tenure": 12
-}           |
-| `api/view-loan/<int:loan_id>/`     | `GET`  | No Request Body Needed     |
-| `api/view-loans/<int:customer_id>/`| `GET`  | No Request Body Needed |
+}
+``` | Create a new loan application |
+| `api/view-loan/<int:loan_id>/` | `GET` | No request body needed | View specific loan details |
+| `api/view-loans/<int:customer_id>/` | `GET` | No request body needed | View all loans for a customer |
 
 ## Automatic Data Seeding
 
