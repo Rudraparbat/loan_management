@@ -123,7 +123,7 @@ The API will now be accessible at http://localhost:8000/.
 ``` | Create a new loan application |
 | `api/view-loan/<int:loan_id>/` | `GET` | No request body needed | View specific loan details |
 | `api/view-loans/<int:customer_id>/` | `GET` | No request body needed | View all loans for a customer |
-
+```
 ## Automatic Data Seeding
 
 This project features a "self-healing" data seeding mechanism. On startup, the Celery worker uses a `worker_ready` signal to check if the database is empty.
